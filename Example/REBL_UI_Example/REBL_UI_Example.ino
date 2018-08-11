@@ -2,7 +2,7 @@
 #include <LiquidCrystal_SPI_8Bit.h>
 #include <TimeLib.h>
 
-#define ENCODER_INTERRUPT_PIN 2
+#define ENCODER_INTERRUPT_PIN 2 // MUST keep pin 2.
 #define ENCODER_B_PIN 4
 #define BUTTON_PIN 8
 #define LCD_ENABLE_PIN A1
@@ -11,6 +11,10 @@
 #define LCD_BLUE A0
 #define LCD_GREEN A2
 #define LCD_RED A4
+#define LCD_D1 4    // New ↓
+#define LCD_D2 5
+#define LCD_D3 6
+#define LCD_D4 7
 
 //forward declaration for the functions
 boolean fun1();
@@ -46,7 +50,7 @@ MenuList menuList(menuItems, menuListSize(menuItems));
 
 
 void setup() {
-  initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_RED, LCD_GREEN, LCD_BLUE);
+  initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
   initInterface(BUTTON_PIN, ENCODER_INTERRUPT_PIN, ENCODER_B_PIN);
   reblMenu.setCurrentMenu(&menuList);
 }
