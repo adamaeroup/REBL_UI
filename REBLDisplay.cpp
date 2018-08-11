@@ -19,28 +19,7 @@ boolean cursorActive = false;
 uint8_t cursorRow;
 uint8_t cursorCol;
 
-void initLCD(uint8_t aRsPin, uint8_t aEnablePin, uint8_t aRed, uint8_t aGreen, uint8_t aBlue) {
-	redPin = aRed;
-	greenPin = aGreen;
-	bluePin = aBlue;
-	pinMode(redPin, OUTPUT);
-	pinMode(greenPin, OUTPUT);
-	pinMode(bluePin, OUTPUT);
-
-
-#ifdef USING_SERIAL
-	Serial.begin(19200);
-#else
-	LCD = new LiquidCrystal_SPI_8Bit(aRsPin, aEnablePin);
-	LCD->begin(NUM_LCD_COLS, NUM_LCD_ROWS);
-	LCD->noCursor();
-	LCD->clear();
-	setColor(BLUE);
-
-#endif
-}
-
-
+void initLCD(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t); // NEW
 
 void setColor(color_vars color) {
 	current_color = color;
