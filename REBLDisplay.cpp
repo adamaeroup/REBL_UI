@@ -4,7 +4,7 @@
 extern HardwareSerial Serial;
 #endif
 
-LiquidCrystal_SPI_8Bit *LCD;
+LiquidCrystal *LCD;
 
 uint8_t redPin;
 uint8_t greenPin;
