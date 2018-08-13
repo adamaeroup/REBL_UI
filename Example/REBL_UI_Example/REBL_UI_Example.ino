@@ -2,19 +2,23 @@
 #include <LiquidCrystal.h>
 #include <TimeLib.h>
 
-#define ENCODER_INTERRUPT_PIN 2 // MUST keep pin 2.
-#define ENCODER_B_PIN 4
-#define BUTTON_PIN 8
-#define LCD_ENABLE_PIN A1
-#define LCD_RS_PIN A3
-#define HEART_BEAT_PIN A5
-#define LCD_BLUE A0
-#define LCD_GREEN A2
-#define LCD_RED A4
+LiquidCrystal lcd( 12, 13, 5, 4, 3, 7); 
+
+#define ENCODER_INTERRUPT_PIN 2 // CLK: Must keep pin 2.
+#define ENCODER_B_PIN A0        // DT
+#define BUTTON_PIN A1           // SW
+
+#define LCD_ENABLE_PIN 13
+#define LCD_RS_PIN 12
+//#define HEART_BEAT_PIN A5
+//#define LCD_BLUE A0
+//#define LCD_GREEN A2
+//#define LCD_RED A4
 #define LCD_D1 4    // New ↓
 #define LCD_D2 5
 #define LCD_D3 6
 #define LCD_D4 7
+// const int contrast = 20;    // min. PWM value
 
 //forward declaration for the functions
 boolean fun1();
@@ -47,15 +51,24 @@ MenuItem PROGMEM menuItems[] = {
 
 MenuList menuList(menuItems, menuListSize(menuItems));
 
-
+//LiquidCrystal lcd( 12, 13, 5, 4, 3, 7); // Arduino pins. Creates object.
+      // LCD:GND,5V(RS=2 en=3 11 12 13 14) 16=GND
 
 void setup() {
+  lcd.begin(16, 2);
   initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
   initInterface(BUTTON_PIN, ENCODER_INTERRUPT_PIN, ENCODER_B_PIN);
   reblMenu.setCurrentMenu(&menuList);
+  // LCD code:
+//  pinMode(7,HIGH);  // LCD pin 15: backlight (anode)
+//  pinMode(11,OUTPUT);
+//  analogWrite(11,700);
+//  analogWrite(6,contrast); // PWM~ pins: 3,5,(6),9,10,11
+
 }
 
 void loop() {
+  lcd.setCursor(0, 1);
   pollButton();
   static unsigned long preMil = millis();
   unsigned long curMil = millis();
@@ -208,4 +221,3 @@ boolean showTime() {
   }
   return displayDelay(10);  // do it for ten seconds
 }
-
