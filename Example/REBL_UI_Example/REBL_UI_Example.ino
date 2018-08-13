@@ -1,5 +1,5 @@
 #include "REBL_UI.h"
-#include <LiquidCrystal_SPI_8Bit.h>
+#include <LiquidCrystal.h>
 #include <TimeLib.h>
 
 #define ENCODER_INTERRUPT_PIN 2 // MUST keep pin 2.
