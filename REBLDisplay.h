@@ -7,8 +7,8 @@
 #include "Defines.h"
 
 enum color_vars {BLACK, RED , GREEN , YELLOW , BLUE , PURPLE , CYAN , WHITE};
-#define LCD_ENABLE_PIN A1
-#define LCD_RS_PIN A3
+#define LCD_ENABLE_PIN 6
+#define LCD_RS_PIN 12
 #define LCD_D1 4    // New ↓
 #define LCD_D2 5
 #define LCD_D3 6
