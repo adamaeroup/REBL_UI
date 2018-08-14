@@ -97,4 +97,3 @@ void MenuClass::setCurrentMenu(MenuList* aMenu) {
 boolean MenuClass::isCancelled() {
 	return cancelFlag;
 }
-
