@@ -1,5 +1,5 @@
 #include "REBLInterface.h"
-#define NOT_AN_INTERRUPT 50
+//#define NOT_AN_INTERRUPT 50
 
 uint8_t buttonPin;
 uint8_t encoderInterrupt;
@@ -212,4 +212,3 @@ void buttonOff() {
 boolean isButtonOn() {
 	return buttonIsOn;
 }
-
