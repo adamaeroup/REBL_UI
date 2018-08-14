@@ -1,21 +1,32 @@
 /*
- * REBL_UI.h
+ * REBLMenu.h
  *
- *  Created on: Oct 23, 2015
+ *  Created on: Oct 10, 2015
  *      Author: David
  */
 
-#ifndef REBL_UI_H_
-#define REBL_UI_H_
+#ifndef REBLMENU_H_
+#define REBLMENU_H_
 
-// includes
+#include "Arduino.h"
+#include "REBL_UI.h"
 
-#include "Defines.h"
-#include "REBLDisplay.h"
-#include "REBLInterface.h"
-#include "REBL_Functions.h"
-#include "REBLMenu.h"
+#include "MenuClass.h"
+//#include "Defines.h"
+//#include "REBLInterface.h"
+//#include "REBLDisplay.h"
 
 
+class REBLMenu: public MenuClass {
 
-#endif /* REBL_UI_H_ */
+public:
+	int updateSelection();
+	boolean selectionMade();
+	boolean checkForCancel();
+	void displayMenu();
+
+};
+
+extern REBLMenu reblMenu;
+
+#endif /* REBLMENU_H_ */
