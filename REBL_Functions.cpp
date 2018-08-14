@@ -76,7 +76,7 @@ boolean enterString(char* aBuffer, uint8_t aLength) {
 }
 
 boolean inputTime(time_t& var) {
-
+#define breakTime
 	static int state = 0;
 	static tmElements_t tmElem;
 	breakTime(var, tmElem);
@@ -170,11 +170,11 @@ boolean inputTime(time_t& var) {
 	return false;
 }
 
+
 void displayTime(time_t aTime) {
-
+  #define breakTime
 	tmElements_t tmElem;
-	breakTime(aTime, tmElem);
-
+  breakTime(aTime, tmElem);
 	char outBuf[2][NUM_LCD_COLS + 1];
 	sprintf_P(outBuf[0], PSTR("%02d:%02d:%02d"), tmElem.Hour, tmElem.Minute,
 			tmElem.Second);
@@ -185,6 +185,7 @@ void displayTime(time_t aTime) {
 	displayLineLeft(1, outBuf[1]);
 
 }
+
 
 
 //  To be used as a timer by other functions on the menu
