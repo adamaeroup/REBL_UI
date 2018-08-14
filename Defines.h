@@ -11,8 +11,8 @@
 #define BUTTON_DEBOUNCE 50
 #define BUTTON_LONG_PRESS_TIME 2000
 
-#define NUM_LCD_ROWS 2
-#define NUM_LCD_COLS 16
+#define NUM_LCD_ROWS 4
+#define NUM_LCD_COLS 20
 
 #define DISPLAY_DELAY 500
 
