@@ -2,6 +2,7 @@
 #include <LiquidCrystal.h>
 #include <TimeLib.h>
 
+#define initLCD // NEW2 ----------------------------------> May be incorrect.
 #define ENCODER_INTERRUPT_PIN 2 // MUST keep pin 2.
 #define ENCODER_B_PIN A0
 #define BUTTON_PIN A1
