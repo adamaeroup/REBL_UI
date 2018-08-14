@@ -2,22 +2,14 @@
 #include <LiquidCrystal.h>
 #include <TimeLib.h>
 
-LiquidCrystal lcd( 12, 13, 5, 4, 3, 7); 
-
+#define initLCD // NEW - Fixed error, but unknown if incorrect.
 #define ENCODER_INTERRUPT_PIN 2 // CLK: Must keep pin 2.
 #define ENCODER_B_PIN A0        // DT
 #define BUTTON_PIN A1           // SW
 
 #define LCD_ENABLE_PIN 13
 #define LCD_RS_PIN 12
-//#define HEART_BEAT_PIN A5
-//#define LCD_BLUE A0
-//#define LCD_GREEN A2
-//#define LCD_RED A4
-#define LCD_D1 4    // New ↓
-#define LCD_D2 5
-#define LCD_D3 6
-#define LCD_D4 7
+// #define HEART_BEAT_PIN A5
 // const int contrast = 20;    // min. PWM value
 
 //forward declaration for the functions
@@ -55,7 +47,6 @@ MenuList menuList(menuItems, menuListSize(menuItems));
       // LCD:GND,5V(RS=2 en=3 11 12 13 14) 16=GND
 
 void setup() {
-  lcd.begin(16, 2);
   initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
   initInterface(BUTTON_PIN, ENCODER_INTERRUPT_PIN, ENCODER_B_PIN);
   reblMenu.setCurrentMenu(&menuList);
