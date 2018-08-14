@@ -40,7 +40,9 @@ boolean REBLMenu::selectionMade() {
 //  Currently only implemented to use 2 lines.  Could be expanded.
 void REBLMenu::displayMenu() {
 
-	char outBuf[NUM_LCD_COLS + 1];
+
+
+ char outBuf[NUM_LCD_COLS + 1];
 
 	int currentLine = 0;
 
@@ -55,4 +57,3 @@ void REBLMenu::displayMenu() {
 	displayLineLeft(currentLine++, outBuf);
 
 }
-
