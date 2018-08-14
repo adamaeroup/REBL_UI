@@ -1,8 +1,8 @@
 #include "REBL_UI.h"
 #include <LiquidCrystal.h>
-#include <TimeLib.h>
+#include "TimeLib.h"
 
-#define initLCD // NEW2 ----------------------------------> May be incorrect.
+#define initLCD
 #define ENCODER_INTERRUPT_PIN 2 // MUST keep pin 2.
 #define ENCODER_B_PIN A0
 #define BUTTON_PIN A1
@@ -16,8 +16,6 @@
 #define LCD_D2 4
 #define LCD_D3 3
 #define LCD_D4 7
-// #define HEART_BEAT_PIN A5
-// const int contrast = 20;    // min. PWM value
 
 //forward declaration for the functions
 boolean fun1();
@@ -50,23 +48,15 @@ MenuItem PROGMEM menuItems[] = {
 
 MenuList menuList(menuItems, menuListSize(menuItems));
 
-//LiquidCrystal lcd( 12, 13, 5, 4, 3, 7); // Arduino pins. Creates object.
-      // LCD:GND,5V(RS=2 en=3 11 12 13 14) 16=GND
+
 
 void setup() {
   initLCD(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_D1, LCD_D2, LCD_D3, LCD_D4); // New
   initInterface(BUTTON_PIN, ENCODER_INTERRUPT_PIN, ENCODER_B_PIN);
   reblMenu.setCurrentMenu(&menuList);
-  // LCD code:
-//  pinMode(7,HIGH);  // LCD pin 15: backlight (anode)
-//  pinMode(11,OUTPUT);
-//  analogWrite(11,700);
-//  analogWrite(6,contrast); // PWM~ pins: 3,5,(6),9,10,11
-
 }
 
 void loop() {
-  lcd.setCursor(0, 1);
   pollButton();
   static unsigned long preMil = millis();
   unsigned long curMil = millis();
